@@ -9,6 +9,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://cakfan.github.io",
   base: "/dkmcakes",
+  outDir: "./docs",
   trailingSlash: "never",
   image: {
     domains: ["dkmcakes.com"],

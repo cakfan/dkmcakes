@@ -1,0 +1,42 @@
+---
+interface Props {
+  variant?: "hero" | "mini";
+  centerText?: string;
+  subText?: string;
+  ringText?: string;
+}
+const {
+  variant = "mini",
+  centerText = "",
+  subText = "",
+  ringText = "DKM CAKES & COOKIES • HALAL MUI • ",
+} = Astro.props;
+---
+
+{
+  variant === "hero" ? (
+    <svg class="seal" viewBox="0 0 200 200" aria-hidden="true">
+      <defs>
+        <path
+          id="circlePath"
+          d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"
+        />
+      </defs>
+      <circle cx="100" cy="100" r="96" fill="var(--bg-dark)" stroke="var(--gold)" stroke-width="1" />
+      <circle cx="100" cy="100" r="68" fill="none" stroke="var(--gold)" stroke-width="1" />
+      <text font-size="10.5" letter-spacing="3" fill="var(--gold-soft)" font-family="var(--font-body)" font-weight="700">
+        <textPath href="#circlePath" startOffset="0%">{ringText}</textPath>
+      </text>
+      <g class="center-text">
+        <text x="100" y="96" text-anchor="middle" font-family="var(--font-display)" font-style="italic" font-size="19" fill="var(--gold)">{centerText}</text>
+        <text x="100" y="116" text-anchor="middle" font-family="var(--font-body)" font-size="8.5" letter-spacing="2" fill="var(--gold-soft)">{subText}</text>
+      </g>
+    </svg>
+  ) : (
+    <svg class="mini-seal" viewBox="0 0 200 200" aria-hidden="true">
+      <circle cx="100" cy="100" r="96" fill="none" stroke="var(--gold)" stroke-width="2" />
+      <circle cx="100" cy="100" r="76" fill="none" stroke="var(--gold)" stroke-width="1" />
+      <text x="100" y="112" text-anchor="middle" font-family="var(--font-display)" font-style="italic" font-size="34" fill="var(--gold)">{centerText}</text>
+    </svg>
+  )
+}

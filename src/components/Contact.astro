@@ -1,0 +1,36 @@
+---
+import config from "../data/config.json";
+const { business, socials } = config;
+const mapEmbedUrl = `https://www.google.com/maps?q=${business.geo.lat},${business.geo.lng}&z=17&output=embed`;
+---
+
+<section class="contact" id="kontak">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <p class="eyebrow">Kontak</p>
+        <h2 style="margin:16px 0 20px; font-size:clamp(28px,3vw,38px);">Rayakan Momen Anda<br />Bersama Kami</h2>
+        <p>Konsultasikan cake impian Anda, atau pesan hantaran dan snack box untuk acara berikutnya. Tim kami siap membantu dari perencanaan hingga hari pengantaran.</p>
+        <ul class="info-list">
+          <li><div><b>Alamat</b>{business.address.full}</div></li>
+          <li><div><b>Telepon / WhatsApp</b>{business.phoneDisplay}</div></li>
+          <li><div><b>Jam Layanan</b>{business.hoursDisplay}</div></li>
+        </ul>
+        <div class="socials">
+          {socials.map((s) => (
+            <a href={s.url} aria-label={s.label} target="_blank" rel="noopener">{s.short}</a>
+          ))}
+        </div>
+      </div>
+      <div class="map-wrap reveal">
+        <div class="map-frame">
+          <iframe src={mapEmbedUrl} loading="lazy" title={`Lokasi ${config.site.name}`}></iframe>
+        </div>
+        <a href={business.mapsUrl} target="_blank" rel="noopener" class="map-cta">
+          <span>Buka di Google Maps</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M17 7H9M17 7V15" /></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+---
+import config from "../data/config.json";
+import Seal from "./Seal.astro";
+const { whyUs } = config;
+---
+
+<section class="why">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow on-dark">{whyUs.eyebrow}</p>
+      <h2>{whyUs.heading}</h2>
+    </div>
+  </div>
+  <div class="why-grid">
+    {whyUs.items.map((item) => (
+      <div class="why-card reveal">
+        <Seal variant="mini" centerText={item.sealText} />
+        <h3>{item.title}</h3>
+        <p>{item.description}</p>
+      </div>
+    ))}
+  </div>
+</section>

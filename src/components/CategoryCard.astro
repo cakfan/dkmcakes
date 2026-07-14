@@ -1,0 +1,88 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  slug: string;
+  name: string;
+  tagline: string;
+  image: string;
+  productCount: number;
+}
+
+const { slug, name, tagline, image, productCount } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<a class="category-card" href={`${base}/${slug}`}>
+  <div class="category-card-img">
+    <Image src={image} alt={name} width={700} height={500} loading="lazy" />
+  </div>
+  <div class="category-card-body">
+    <span class="category-card-tag">{tagline}</span>
+    <h3 class="category-card-name">{name}</h3>
+    <p class="category-card-count">{productCount} Produk</p>
+  </div>
+</a>
+
+<style>
+  .category-card {
+    position: relative;
+    display: block;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    background: var(--bg-dark);
+  }
+  .category-card-img {
+    position: absolute;
+    inset: 0;
+  }
+  .category-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .7s cubic-bezier(.4,0,.2,1);
+    opacity: 0.88;
+  }
+  .category-card:hover .category-card-img img {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+  .category-card-body {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 24px;
+    background: linear-gradient(0deg, rgba(22,21,18,0.92), transparent 70%);
+  }
+  .category-card-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .category-card-name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ivory);
+    margin-bottom: 4px;
+  }
+  .category-card-count {
+    font-size: 13px;
+    color: rgba(247,241,228,0.6);
+  }
+  .category-card::after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid var(--gold);
+    opacity: 0;
+    transition: opacity .4s ease;
+    pointer-events: none;
+  }
+  .category-card:hover::after {
+    opacity: 0.85;
+  }
+</style>

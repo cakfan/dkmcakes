@@ -1,0 +1,59 @@
+---
+import config from "../data/config.json";
+const base = import.meta.env.BASE_URL;
+function resolveHref(href: string): string {
+  if (href.startsWith('#')) return `${base}${href}`;
+  if (href.startsWith('/')) return `${base}${href.slice(1)}`;
+  return href;
+}
+---
+
+<header id="siteHeader">
+  <div class="container">
+    <nav aria-label="Navigasi utama">
+      <a href={base} class="logo">
+        <span class="mark">DKM</span>
+        <span class="tag">{config.site.tagline}</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        {config.nav.map((item) => (
+          <li><a href={resolveHref(item.href)}>{item.label}</a></li>
+        ))}
+      </ul>
+      <div class="nav-cta">
+        <a href={config.business.whatsappUrl} class="btn btn-gold">Pesan Sekarang</a>
+        <button class="burger" id="burgerBtn" aria-label="Buka menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("siteHeader");
+  window.addEventListener("scroll", () => {
+    header?.classList.toggle("scrolled", window.scrollY > 40);
+  });
+
+  const burger = document.getElementById("burgerBtn");
+  const navLinks = document.getElementById("navLinks");
+  burger?.addEventListener("click", () => {
+    const open = navLinks?.classList.toggle("open");
+    burger.setAttribute("aria-expanded", String(open));
+    burger.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
+  });
+  navLinks?.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      burger?.setAttribute("aria-expanded", "false");
+      burger?.setAttribute("aria-label", "Buka menu");
+    })
+  );
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && navLinks?.classList.contains("open")) {
+      navLinks.classList.remove("open");
+      burger?.setAttribute("aria-expanded", "false");
+      burger?.setAttribute("aria-label", "Buka menu");
+      burger?.focus();
+    }
+  });
+</script>

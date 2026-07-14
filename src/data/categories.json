@@ -1,0 +1,58 @@
+[
+  {
+    "slug": "daily-snack",
+    "name": "Daily Snack",
+    "tagline": "Ready Setiap Hari",
+    "description": "Bikin harimu seru dan semangat setiap hari dengan berbagai snack endeus dari DKM Cakes & Cookies yang selalu ready setiap hari.",
+    "image": "https://dkmcakes.com/wp-content/uploads/2022/05/7.png"
+  },
+  {
+    "slug": "classic-cake",
+    "name": "Classic Cake",
+    "tagline": "Pilihan Favorit",
+    "description": "Cake berlapis dengan cream lembut dan rasa yang konsisten — pilihan tepat untuk ulang tahun, syukuran, atau perayaan keluarga.",
+    "image": "https://dkmcakes.com/wp-content/uploads/2019/03/1.-Black-Forest-DKM-Cakes.jpg"
+  },
+  {
+    "slug": "custom-cake",
+    "name": "Custom Cake",
+    "tagline": "Desain Sesuai Keinginan",
+    "description": "Rayakan hari istimewa orang tercinta dengan cake yang lezat, unik dan berkesan. Berbagai karakter tema favorit bisa dipesan di DKM Cakes & Cookies!",
+    "image": "https://dkmcakes.com/wp-content/uploads/2019/03/20181012_1111480.jpg"
+  },
+  {
+    "slug": "cupcake",
+    "name": "Cupcake",
+    "tagline": "Custom Cupcake",
+    "description": "Cupcake cantik dengan berbagai pilihan set — cocok untuk hadiah, pesta, atau hampers yang unik dan berkesan.",
+    "image": "https://dkmcakes.com/wp-content/uploads/2019/03/20180223_081144.jpg"
+  },
+  {
+    "slug": "cookies-lebaran",
+    "name": "Cookies Lebaran",
+    "tagline": "Premium Cookies",
+    "description": "Berkumpul dengan keluarga makin bermakna di saat momen spesial Ramadhan dan Lebaran dengan kue kering favorit spesial dari DKM Cookies.",
+    "image": "https://dkmcakes.com/wp-content/uploads/2025/01/IMG_20241224_142411_302.jpg"
+  },
+  {
+    "slug": "snackbox",
+    "name": "Kue Basah Snack Box",
+    "tagline": "Untuk Setiap Acara",
+    "description": "Ada acara di rumah atau di kantor dan bingung suguhan kuenya? Kami punya banyak varian kue basah sebagai isi snack box / kue kotak.",
+    "image": "https://dkmcakes.com/wp-content/uploads/2019/03/1.-Pie-Buah-DKM-Cakes.jpg"
+  },
+  {
+    "slug": "kue-hantaran",
+    "name": "Kue Hantaran",
+    "tagline": "Untuk Momen Spesial",
+    "description": "Hari pernikahan yang penting dan sakral semakin istimewa dengan kue hantaran yang cantik dan lezat dari DKM Cakes & Cookies.",
+    "image": "https://dkmcakes.com/wp-content/uploads/2025/02/trioroll2.jpg"
+  },
+  {
+    "slug": "nasi-kotak",
+    "name": "Nasi Kotak & Tumpeng",
+    "tagline": "Catering Spesial",
+    "description": "Nikmati setiap momen spesial bersama DKM Cakes & Cookies — nasi kotak, tumpeng, dan roasted chicken untuk berbagai acara.",
+    "image": "https://dkmcakes.com/wp-content/uploads/2025/02/naskot2.jpg"
+  }
+]

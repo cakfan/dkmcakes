@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import config from "../data/config.json";
+const { about } = config;
+---
+
+<section class="about" id="tentang">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-media reveal">
+        <Image src={about.image} alt={about.imageAlt} width={900} height={1200} loading="lazy" />
+      </div>
+      <div class="about-copy reveal">
+        <p class="eyebrow">{about.eyebrow}</p>
+        <h2>{about.heading}</h2>
+        <div class="divider"></div>
+        {about.paragraphs.map((p) => <p>{p}</p>)}
+        <div class="stat-row">
+          {about.stats.map((stat) => (
+            <div class="stat">
+              <b>{stat.value}</b>
+              <span>{stat.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,90 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  slug: string;
+  name: string;
+  category: string;
+  image: string;
+  alt: string;
+  price: string;
+  priceNote?: string;
+  categorySlug?: string;
+}
+
+const { slug, name, category, image, alt, price, priceNote, categorySlug } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const href = categorySlug ? `${base}/${categorySlug}/${slug}` : `${base}/${slug}`;
+---
+
+<a class="product-card" href={href}>
+  <div class="product-card-img">
+    <Image src={image} alt={alt} width={400} height={300} loading="lazy" />
+  </div>
+  <div class="product-card-body">
+    <span class="product-card-cat">{category}</span>
+    <h3 class="product-card-name">{name}</h3>
+    <p class="product-card-price">{price}</p>
+    {priceNote && <p class="product-card-note">{priceNote}</p>}
+  </div>
+</a>
+
+<style>
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border: 1px solid var(--line-light);
+    overflow: hidden;
+    transition: transform .35s ease, box-shadow .35s ease;
+  }
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  }
+  .product-card-img {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+  .product-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s ease;
+  }
+  .product-card:hover .product-card-img img {
+    transform: scale(1.06);
+  }
+  .product-card-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-card-cat {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 6px;
+  }
+  .product-card-name {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+  .product-card-price {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--wine);
+    margin-top: auto;
+  }
+  .product-card-note {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+</style>

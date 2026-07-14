@@ -1,5 +1,5 @@
 ---
-import "../styles/global.css";
+import cssUrl from "../styles/global.css?url";
 import config from "../data/config.json";
 
 interface Props {
@@ -8,6 +8,7 @@ interface Props {
   ogImage?: string;
   ogImageWidth?: number;
   ogImageHeight?: number;
+  heroImage?: string;
 }
 
 const {
@@ -16,8 +17,11 @@ const {
   ogImage = config.site.ogImage,
   ogImageWidth = 1200,
   ogImageHeight = 630,
+  heroImage,
 } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const fontHref = "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Manrope:wght@400;600;700&display=swap";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -57,6 +61,8 @@ const jsonLd = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#161512" />
+    <meta name="color-scheme" content="light" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -90,10 +96,23 @@ const jsonLd = {
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://dkmcakes.com" />
+    <link rel="dns-prefetch" href="https://dkmcakes.com" />
+    <link rel="preload" href={cssUrl} as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href={cssUrl} /></noscript>
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href={fontHref}
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link rel="stylesheet" href={fontHref} />
+    </noscript>
+
+    {heroImage && (
+      <link rel="preload" as="image" href={heroImage} fetchpriority="high" />
+    )}
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to content</a>

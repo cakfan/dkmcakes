@@ -46,7 +46,7 @@ const waLink = `https://wa.me/${config.business.phoneIntl.replace("+", "")}?text
         <h2 class="sr-only">Daftar Produk {category.name}</h2>
         <div class="product-count reveal">
           <span>{catProducts.length} Produk</span>
-          <a href={waLink} class="btn btn-gold" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+          <a href={waLink} class="btn btn-gold" target="_blank" rel="noopener noreferrer">Pesan via WhatsApp</a>
         </div>
         <div class="product-grid">
           {catProducts.map((product) => (

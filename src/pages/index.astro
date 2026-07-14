@@ -9,9 +9,10 @@ import Collection from "../components/Collection.astro";
 import Testimonial from "../components/Testimonial.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
+import config from "../data/config.json";
 ---
 
-<Layout>
+<Layout heroImage={config.hero.image}>
   <Header />
   <main id="main-content">
     <Hero />

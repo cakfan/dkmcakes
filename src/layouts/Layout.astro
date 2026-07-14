@@ -1,5 +1,5 @@
 ---
-import cssUrl from "../styles/global.css?url";
+import "../styles/global.css";
 import config from "../data/config.json";
 
 interface Props {
@@ -94,12 +94,61 @@ const jsonLd = {
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
+    <style is:inline>
+      :root{--bg-dark:#161512;--bg-dark2:#211F1B;--ivory:#F6F4EF;--bg-light:#FAF9F5;--gold:#E2988C;--gold-soft:#F3C7BE;--gold-dim:#8C6152;--wine:#7A3E22;--text-dark:#211F1B;--line-dark:rgba(226,152,140,0.3);--font-display:Georgia,serif;--font-body:-apple-system,sans-serif}
+      *{box-sizing:border-box;margin:0;padding:0}
+      html{scroll-behavior:smooth}
+      body{font-family:var(--font-body);background:var(--bg-light);color:var(--text-dark);line-height:1.6;overflow-x:hidden}
+      a{color:inherit;text-decoration:none}
+      .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999;padding:12px 24px;background:var(--bg-dark);color:var(--ivory);font-size:14px;font-weight:600}
+      .skip-link:focus{position:fixed;top:8px;left:8px;width:auto;height:auto;outline:2px solid var(--gold)}
+      header{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 0;background:linear-gradient(180deg,rgba(22,21,18,0.68),transparent)}
+      nav{display:flex;align-items:center;justify-content:space-between}
+      .logo{display:flex;flex-direction:column;line-height:1}
+      .logo .mark{font-family:var(--font-display);font-size:26px;color:var(--ivory);letter-spacing:1px}
+      .logo .tag{font-size:9px;letter-spacing:4px;color:var(--gold);margin-top:4px;text-transform:uppercase}
+      .nav-links{display:flex;gap:38px;list-style:none}
+      .nav-links a{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--ivory);opacity:0.85}
+      .nav-cta{display:flex;align-items:center;gap:22px}
+      .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+      .burger span{width:22px;height:1.5px;background:var(--ivory)}
+      .hero{position:relative;min-height:100vh;background:var(--bg-dark);display:flex;align-items:center;padding-top:110px;overflow:hidden}
+      .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:60px;align-items:center;width:100%}
+      .hero-copy h1{font-family:var(--font-display);font-size:clamp(42px,5.4vw,74px);font-weight:500;color:var(--ivory);line-height:1.04;margin:22px 0 26px}
+      .hero-copy p{font-size:16px;color:rgba(247,241,228,0.72);max-width:440px;margin-bottom:36px}
+      .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+      .hero-media{position:relative}
+      .hero-media .frame{position:relative;aspect-ratio:4/5;overflow:hidden;border:1px solid var(--line-dark)}
+      .hero-media img{width:100%;height:100%;object-fit:cover}
+      section{padding:120px 0}
+      .container{max-width:1180px;margin:0 auto;padding:0 32px}
+      .eyebrow{font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim)}
+      .eyebrow.on-dark{color:var(--gold-soft)}
+      .section-head h2{font-family:var(--font-display);font-weight:500;font-size:clamp(30px,3.4vw,44px);margin-top:16px}
+      .why{background:var(--bg-dark);color:var(--ivory)}
+      .why .section-head h2{color:var(--ivory)}
+      .collection{background:var(--bg-light)}
+      .col-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+      .col-item{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--bg-dark)}
+      .testi{background:var(--wine);color:var(--ivory);text-align:center}
+      .contact{background:var(--bg-light)}
+      .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:stretch}
+      footer{background:var(--bg-dark);color:rgba(247,241,228,0.6);padding:56px 0 28px}
+      @media(max-width:980px){
+        .hero-grid,.contact-grid{grid-template-columns:1fr}
+        .hero-media{order:-1}
+        .nav-links{position:fixed;top:0;right:-100%;height:100vh;width:78%;max-width:340px;background:var(--bg-dark);flex-direction:column;padding:110px 40px;gap:28px;transition:right .4s ease;box-shadow:-10px 0 40px rgba(0,0,0,0.3)}
+        .burger{display:flex}
+        .nav-cta .btn{display:none}
+        .col-grid{grid-template-columns:repeat(2,1fr)}
+      }
+      @media(max-width:560px){.container{padding:0 20px}section{padding:80px 0}.col-grid{grid-template-columns:1fr 1fr}}
+    </style>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://dkmcakes.com" />
     <link rel="dns-prefetch" href="https://dkmcakes.com" />
-    <link rel="preload" href={cssUrl} as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href={cssUrl} /></noscript>
     <link
       rel="preload"
       href={fontHref}

@@ -276,6 +276,7 @@
   @media (max-width:980px){
     .hero-grid, .about-grid, .contact-grid{grid-template-columns:1fr;}
     .hero-media{order:-1;}
+    .seal{width:110px; height:110px; left:-28px; bottom:-28px;}
     .why-grid{grid-template-columns:1fr;}
     .col-grid{grid-template-columns:repeat(2,1fr);}
     .nav-links{position:fixed; top:0; right:-100%; height:100vh; width:78%; max-width:340px;
@@ -288,6 +289,7 @@
   @media (max-width:560px){
     .container{padding:0 20px;}
     section{padding:80px 0;}
+    .seal{width:90px; height:90px; left:-20px; bottom:-20px;}
     .col-grid{grid-template-columns:1fr 1fr;}
     .stat-row{gap:30px;}
   }

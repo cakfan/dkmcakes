@@ -11,6 +11,7 @@ export default defineConfig({
   base: "/dkmcakes",
   outDir: "./docs",
   trailingSlash: "never",
+  prefetch: true,
   image: {
     domains: ["dkmcakes.com"],
   },

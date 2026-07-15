@@ -91,8 +91,10 @@
   .nav-links a:hover{opacity:1;}
   .nav-links a:hover::after{width:100%;}
   .nav-cta{display:flex; align-items:center; gap:22px;}
-  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:6px;}
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:6px; position:relative; z-index:10;}
   .burger span{width:22px; height:1.5px; background:var(--ivory);}
+.nav-overlay{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:99;}
+.nav-overlay.open{display:block;}
 
   /* HERO */
   .hero{
@@ -278,7 +280,7 @@
     .col-grid{grid-template-columns:repeat(2,1fr);}
     .nav-links{position:fixed; top:0; right:-100%; height:100vh; width:78%; max-width:340px;
       background:var(--bg-dark); flex-direction:column; padding:110px 40px; gap:28px;
-      transition:right .4s ease; box-shadow:-10px 0 40px rgba(0,0,0,0.3);}
+      transition:right .4s ease; box-shadow:-10px 0 40px rgba(0,0,0,0.3); z-index:100;}
     .nav-links.open{right:0;}
     .burger{display:flex;}
     .nav-cta .btn{display:none;}
